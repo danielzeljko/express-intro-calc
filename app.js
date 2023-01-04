@@ -37,6 +37,23 @@ app.get("/mode", function (req, res) {
   return res.json({operation: "mode", value: result})
 })
 
+/** Finds mode, median, mean of nums in qs: returns {
+  operation: "all",
+  mean: 12
+  median: 10,
+  mode: 8
+} */
+
+app.get("/all", function (req, res) {
+
+  const numbers = convertStrNums(req.query.nums.split(","))
+  const mode = findMode(numbers)
+  const mean = findMean(numbers)
+  const median = findMedian(numbers)
+
+  return res.json({operation: "all", mean, median, mode})
+})
+
 /** 404 handler: matches unmatched routes; raises NotFoundError. */
 app.use(function (req, res) {
   throw new NotFoundError();
