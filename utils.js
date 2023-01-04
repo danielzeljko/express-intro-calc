@@ -1,5 +1,6 @@
 const { BadRequestError } = require("./expressError");
 
+// TODO: Research Number.isNaN() vs isNaN()
 
 /** Convert strNums like ["1","2","3"] to [1, 2, 3]. */
 
@@ -16,6 +17,10 @@ function convertStrNums(strNums) {
 
   return nums;
 }
+
+// function writeToFile(result){
+
+// }
 
 
 module.exports = { convertStrNums };
